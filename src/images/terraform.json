@@ -1,0 +1,5278 @@
+{
+  "version": 4,
+  "terraform_version": "0.13.3",
+  "serial": 162,
+  "lineage": "67964ca2-b0d4-4219-bbd4-1a6b593b85cf",
+  "outputs": {
+    "clamav_sg_id": {
+      "value": "sg-049f93f2a6f631619",
+      "type": "string"
+    },
+    "concourseci_nomad_sg_id": {
+      "value": "sg-03bf58cd38f78aa8a",
+      "type": "string"
+    },
+    "concourseci_sg_id": {
+      "value": "sg-03bf58cd38f78aa8a",
+      "type": "string"
+    },
+    "consul_client_sg_id": {
+      "value": "sg-9d8cf2eb",
+      "type": "string"
+    },
+    "consul_http_internal_sg_id": {
+      "value": "sg-088cf27e",
+      "type": "string"
+    },
+    "consul_sg_id": {
+      "value": "sg-c08ff1b6",
+      "type": "string"
+    },
+    "devops_lambda_security_internal": {
+      "value": "sg-05102b67c9df9e35f",
+      "type": "string"
+    },
+    "ecs_internal_sg_id": {
+      "value": "sg-9a87f9ec",
+      "type": "string"
+    },
+    "efs_sg_id": {
+      "value": "sg-042eaffa8873498df",
+      "type": "string"
+    },
+    "elasticsearch_internal_sg_id": {
+      "value": "sg-3d8bf54b",
+      "type": "string"
+    },
+    "he_proxy_connect_sg_id": {
+      "value": "sg-058f9600e6b558117",
+      "type": "string"
+    },
+    "http_internal_sg_id": {
+      "value": "sg-3d8df34b",
+      "type": "string"
+    },
+    "kafka_internal_sg_id": {
+      "value": "sg-0d19079f6b6261985",
+      "type": "string"
+    },
+    "logstash_internal_sg_id": {
+      "value": "sg-2394ea55",
+      "type": "string"
+    },
+    "lucy_internal_sg_id": {
+      "value": "sg-0f9c6286e44cbc044",
+      "type": "string"
+    },
+    "mongodb_internal_sg_id": {
+      "value": "sg-6101762a",
+      "type": "string"
+    },
+    "nomad_http_internal_sg_id": {
+      "value": "sg-0d8a3e748e620e37e",
+      "type": "string"
+    },
+    "nomad_sg_id": {
+      "value": "sg-0828026929ca64eb0",
+      "type": "string"
+    },
+    "outbound_office_dns_sg_id": {
+      "value": "sg-0321febbf4c5e9a80",
+      "type": "string"
+    },
+    "portal_internal_sg_id": {
+      "value": "sg-0d803b23633ebf3c9",
+      "type": "string"
+    },
+    "postgresql_internal_sg_id": {
+      "value": "sg-618cf217",
+      "type": "string"
+    },
+    "rabbitmq_nodes_sg_id": {
+      "value": "sg-1c85fb6a",
+      "type": "string"
+    },
+    "rdp_internal_sg_id": {
+      "value": "sg-ce2d5a85",
+      "type": "string"
+    },
+    "scan-engine_sg_id": {
+      "value": "sg-04ce3c802694a98fc",
+      "type": "string"
+    },
+    "scan-targets_sg_id": {
+      "value": "sg-07777e68dd4e94009",
+      "type": "string"
+    },
+    "ssh_internal_sg_id": {
+      "value": "sg-8c8ef0fa",
+      "type": "string"
+    },
+    "vault_sg_id": {
+      "value": "sg-a78af4d1",
+      "type": "string"
+    },
+    "vpc_ep_internal_sg_id": {
+      "value": "sg-018fe440d99a6914d",
+      "type": "string"
+    },
+    "wrangler_internal_sg_id": {
+      "value": "sg-04d99c9f5523dd532",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "aws_vpc",
+      "name": "this",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:vpc/vpc-23e36058",
+            "cidr_block": "10.90.0.0/19",
+            "cidr_block_associations": [
+              {
+                "association_id": "vpc-cidr-assoc-58d15835",
+                "cidr_block": "10.90.0.0/19",
+                "state": "associated"
+              }
+            ],
+            "default": false,
+            "dhcp_options_id": "dopt-7e07c006",
+            "enable_dns_hostnames": true,
+            "enable_dns_support": true,
+            "filter": [
+              {
+                "name": "tag:Name",
+                "values": [
+                  "CV-DEV-us-east-1"
+                ]
+              }
+            ],
+            "id": "vpc-23e36058",
+            "instance_tenancy": "default",
+            "ipv6_association_id": "",
+            "ipv6_cidr_block": "",
+            "main_route_table_id": "rtb-deb409a2",
+            "owner_id": "658620301396",
+            "state": null,
+            "tags": {
+              "Name": "CV-DEV-us-east-1",
+              "kubernetes.io/cluster/dev-keyspring": "shared"
+            },
+            "timeouts": null
+          }
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "terraform_remote_state",
+      "name": "config",
+      "provider": "provider[\"terraform.io/builtin/terraform\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "backend": "s3",
+            "config": {
+              "value": {
+                "bucket": "cv-terraform-backend",
+                "key": "terraform-state/development/config/terraform.tfstate",
+                "region": "us-east-1"
+              },
+              "type": [
+                "object",
+                {
+                  "bucket": "string",
+                  "key": "string",
+                  "region": "string"
+                }
+              ]
+            },
+            "defaults": null,
+            "outputs": {
+              "value": {
+                "acl_agent_token": "2f0b9897-6a61-490e-9ae5-2fd5bbe1b666",
+                "acl_default_token": "025005aa-4174-4b9c-a651-fd960fa46a33",
+                "acl_master_token": "a1a06123-9239-470d-a968-4d8eb5ad8561",
+                "ad_admin": "SVawsad",
+                "ad_dns_ips_onprem": "10.101.5.3",
+                "ad_domain_onprem": "va.cinc.local",
+                "ad_ou": "OU=AWS,OU=Corvesta Servers,DC=va,DC=cinc,DC=local",
+                "ad_password": "zVz42EWHLCrz",
+                "ad_password_onprem": "Vf9#h3?M",
+                "admin_password": "testing123",
+                "atlantis_url": "na",
+                "bitbucket_user": "na",
+                "bitbucket_user_token": "na",
+                "concourse_db_password": "fewknow29",
+                "concourseci_cidr": "10.90.36.0/24",
+                "consul_acm_cert_arn": "arn:aws:acm:us-east-1:658620301396:certificate/69bf1efd-efec-436d-a2ac-90deb3265b1f",
+                "consul_agent_version": "1.0.1",
+                "consul_ami": "ami-5e6e1224",
+                "consul_key": "hzrv3Lneh9JPIPz//cy0Jw==",
+                "datadog_api_key": "0aa4680099c20bf6b5a85750dc4e2d5a",
+                "datadog_rabbitmq_password": "Tacocat#5415",
+                "dba_keypair": "terraform-dba",
+                "default_keypair": "terraform",
+                "default_region": "us-east-1",
+                "domain_name": "corvesta.net",
+                "elasticsearch_instance_type": "r3.large.elasticsearch",
+                "elasticsearch_version": "6.7",
+                "he_ddva_ddva_answers": "100.112.4.184",
+                "he_ddva_ddva_app": "100.112.4.185",
+                "he_ddva_ddva_connector": "100.112.4.188",
+                "he_ddva_ddva_jms": "100.112.4.188",
+                "he_ddva_dw": "100.112.4.166",
+                "he_ddva_dw_replica": "",
+                "he_ddva_primarydw": "100.112.4.166",
+                "healthedge_cidrs": "172.23.4.0/24,100.112.4.0/24,100.112.31.0/24",
+                "kube_cidr_block": "10.90.24.0/21",
+                "logstash_gelf_port": "12201",
+                "logstash_tcp_port": "5000",
+                "logstash_udp_port": "5001",
+                "office_cidr_blocks": "10.101.0.0/16,10.103.0.0/16,10.122.0.0/23,10.123.0.0/23,10.124.0.0/23,10.155.1.0/24,10.151.1.0/24",
+                "office_dns_addresses": "10.101.5.2/32,10.101.5.3/32",
+                "private2_cidr_block": "10.90.16.0/21",
+                "private_cidr_block": "10.90.0.0/21",
+                "qliknprint_instance_type": "c4.4xlarge",
+                "qliksense_instance_type": "z1d.3xlarge",
+                "rabbit_password": "123testing",
+                "rabbitmq_cookie": "PWHMTIEOWATSGQSVWAJS",
+                "repo_white_list": "na",
+                "run_env": "dev",
+                "siteminder_ips": "10.15.1.38/32,10.15.1.39/32",
+                "spoke_tag": "transitvpc:spoke",
+                "transit_vpc_cidr_block": "10.91.32.0/19",
+                "vault_acm_cert_arn": "arn:aws:acm:us-east-1:658620301396:certificate/69bf1efd-efec-436d-a2ac-90deb3265b1f",
+                "verint_ip_list": "66.151.98.121/32",
+                "vpc_cidr_block": "10.90.0.0/19",
+                "vpc_name": "CV-DEV",
+                "wildcard_cert_arn": "arn:aws:acm:us-east-1:658620301396:certificate/69bf1efd-efec-436d-a2ac-90deb3265b1f",
+                "workspace": "development"
+              },
+              "type": [
+                "object",
+                {
+                  "acl_agent_token": "string",
+                  "acl_default_token": "string",
+                  "acl_master_token": "string",
+                  "ad_admin": "string",
+                  "ad_dns_ips_onprem": "string",
+                  "ad_domain_onprem": "string",
+                  "ad_ou": "string",
+                  "ad_password": "string",
+                  "ad_password_onprem": "string",
+                  "admin_password": "string",
+                  "atlantis_url": "string",
+                  "bitbucket_user": "string",
+                  "bitbucket_user_token": "string",
+                  "concourse_db_password": "string",
+                  "concourseci_cidr": "string",
+                  "consul_acm_cert_arn": "string",
+                  "consul_agent_version": "string",
+                  "consul_ami": "string",
+                  "consul_key": "string",
+                  "datadog_api_key": "string",
+                  "datadog_rabbitmq_password": "string",
+                  "dba_keypair": "string",
+                  "default_keypair": "string",
+                  "default_region": "string",
+                  "domain_name": "string",
+                  "elasticsearch_instance_type": "string",
+                  "elasticsearch_version": "string",
+                  "he_ddva_ddva_answers": "string",
+                  "he_ddva_ddva_app": "string",
+                  "he_ddva_ddva_connector": "string",
+                  "he_ddva_ddva_jms": "string",
+                  "he_ddva_dw": "string",
+                  "he_ddva_dw_replica": "string",
+                  "he_ddva_primarydw": "string",
+                  "healthedge_cidrs": "string",
+                  "kube_cidr_block": "string",
+                  "logstash_gelf_port": "string",
+                  "logstash_tcp_port": "string",
+                  "logstash_udp_port": "string",
+                  "office_cidr_blocks": "string",
+                  "office_dns_addresses": "string",
+                  "private2_cidr_block": "string",
+                  "private_cidr_block": "string",
+                  "qliknprint_instance_type": "string",
+                  "qliksense_instance_type": "string",
+                  "rabbit_password": "string",
+                  "rabbitmq_cookie": "string",
+                  "repo_white_list": "string",
+                  "run_env": "string",
+                  "siteminder_ips": "string",
+                  "spoke_tag": "string",
+                  "transit_vpc_cidr_block": "string",
+                  "vault_acm_cert_arn": "string",
+                  "verint_ip_list": "string",
+                  "vpc_cidr_block": "string",
+                  "vpc_name": "string",
+                  "wildcard_cert_arn": "string",
+                  "workspace": "string"
+                }
+              ]
+            },
+            "workspace": null
+          }
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "terraform_remote_state",
+      "name": "mgmt_config",
+      "provider": "provider[\"terraform.io/builtin/terraform\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "backend": "s3",
+            "config": {
+              "value": {
+                "bucket": "cv-terraform-backend",
+                "key": "terraform-state/mgmt/config/terraform.tfstate",
+                "region": "us-east-1"
+              },
+              "type": [
+                "object",
+                {
+                  "bucket": "string",
+                  "key": "string",
+                  "region": "string"
+                }
+              ]
+            },
+            "defaults": null,
+            "outputs": {
+              "value": {
+                "acl_agent_token": "3ec64b74-d79d-498d-a66f-b5a2e107825d",
+                "acl_default_token": "371d84eb-788d-450b-8609-9e0b8e95cc81",
+                "acl_master_token": "52c72dea-5902-4cc1-a2c8-06be4e6e4775",
+                "ad_admin": "SVawsad",
+                "ad_dns_ips_onprem": "10.101.5.3",
+                "ad_domain_onprem": "va.cinc.local",
+                "ad_ou": "OU=AWS,OU=Corvesta Servers,DC=va,DC=cinc,DC=local",
+                "ad_password": "EWHLCrzzVz42",
+                "ad_password_onprem": "Vf9#h3?M",
+                "admin_password": "testing123",
+                "atlantis_url": "http://atlantis.mgmt.corvesta.net",
+                "bitbucket_user": "cv-devops",
+                "bitbucket_user_token": "YS9zabREKTeerPKuUBS3",
+                "concourse_db_password": "fewknow29",
+                "concourseci_cidr": "10.90.36.0/24",
+                "consul_acm_cert_arn": "arn:aws:acm:us-east-1:038131160342:certificate/6086e5fa-9be7-40c5-adcc-635484483e03",
+                "consul_agent_version": "1.0.1",
+                "consul_ami": "ami-5e6e1224",
+                "consul_key": "Xg07DSAQ3oWtP1pUWSAlEA==",
+                "datadog_api_key": "na",
+                "datadog_rabbitmq_password": "",
+                "dba_keypair": "terraform-dba",
+                "default_keypair": "terraform-mgmt",
+                "default_region": "us-east-1",
+                "domain_name": "corvesta.net",
+                "elasticsearch_instance_type": "r3.large.elasticsearch",
+                "elasticsearch_version": "6.4",
+                "healthedge_cidrs": "172.23.4.0/24",
+                "kube_cidr_block": "10.90.56.0/21",
+                "logstash_gelf_port": "12201",
+                "logstash_tcp_port": "5000",
+                "logstash_udp_port": "5001",
+                "office_cidr_blocks": "10.101.0.0/16,10.103.0.0/16,10.122.0.0/23,10.123.0.0/23,10.124.0.0/23,10.155.1.0/24",
+                "office_dns_addresses": "10.101.5.2/32,10.101.5.3/32",
+                "private2_cidr_block": "na",
+                "private_cidr_block": "10.90.32.0/21",
+                "public_cidr_block": "10.90.48.0/21",
+                "qliknprint_instance_type": "c4.4xlarge",
+                "qliksense_instance_type": "z1d.3xlarge",
+                "rabbit_password": "123testing",
+                "rabbitmq_cookie": "PWHMTIEOWATSGQSVWAJS",
+                "repo_white_list": "bitbucket.org/corvesta/*",
+                "run_env": "mgmt",
+                "siteminder_ips": "na",
+                "spoke_tag": "transitvpc:spoke",
+                "transit_vpc_cidr_block": "10.91.32.0/19",
+                "vault_acm_cert_arn": "arn:aws:acm:us-east-1:038131160342:certificate/6086e5fa-9be7-40c5-adcc-635484483e03",
+                "verint_ip_list": "66.151.98.121/32",
+                "vpc_cidr_block": "10.90.32.0/19",
+                "vpc_name": "CV-MGMT",
+                "wildcard_cert_arn": "arn:aws:acm:us-east-1:038131160342:certificate/6086e5fa-9be7-40c5-adcc-635484483e03",
+                "workspace": "management"
+              },
+              "type": [
+                "object",
+                {
+                  "acl_agent_token": "string",
+                  "acl_default_token": "string",
+                  "acl_master_token": "string",
+                  "ad_admin": "string",
+                  "ad_dns_ips_onprem": "string",
+                  "ad_domain_onprem": "string",
+                  "ad_ou": "string",
+                  "ad_password": "string",
+                  "ad_password_onprem": "string",
+                  "admin_password": "string",
+                  "atlantis_url": "string",
+                  "bitbucket_user": "string",
+                  "bitbucket_user_token": "string",
+                  "concourse_db_password": "string",
+                  "concourseci_cidr": "string",
+                  "consul_acm_cert_arn": "string",
+                  "consul_agent_version": "string",
+                  "consul_ami": "string",
+                  "consul_key": "string",
+                  "datadog_api_key": "string",
+                  "datadog_rabbitmq_password": "string",
+                  "dba_keypair": "string",
+                  "default_keypair": "string",
+                  "default_region": "string",
+                  "domain_name": "string",
+                  "elasticsearch_instance_type": "string",
+                  "elasticsearch_version": "string",
+                  "healthedge_cidrs": "string",
+                  "kube_cidr_block": "string",
+                  "logstash_gelf_port": "string",
+                  "logstash_tcp_port": "string",
+                  "logstash_udp_port": "string",
+                  "office_cidr_blocks": "string",
+                  "office_dns_addresses": "string",
+                  "private2_cidr_block": "string",
+                  "private_cidr_block": "string",
+                  "public_cidr_block": "string",
+                  "qliknprint_instance_type": "string",
+                  "qliksense_instance_type": "string",
+                  "rabbit_password": "string",
+                  "rabbitmq_cookie": "string",
+                  "repo_white_list": "string",
+                  "run_env": "string",
+                  "siteminder_ips": "string",
+                  "spoke_tag": "string",
+                  "transit_vpc_cidr_block": "string",
+                  "vault_acm_cert_arn": "string",
+                  "verint_ip_list": "string",
+                  "vpc_cidr_block": "string",
+                  "vpc_name": "string",
+                  "wildcard_cert_arn": "string",
+                  "workspace": "string"
+                }
+              ]
+            },
+            "workspace": null
+          }
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "terraform_remote_state",
+      "name": "mgmt_config_dr",
+      "provider": "provider[\"terraform.io/builtin/terraform\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "backend": "s3",
+            "config": {
+              "value": {
+                "bucket": "cv-terraform-backend",
+                "key": "terraform-state/mgmt-dr/config/terraform.tfstate",
+                "region": "us-east-1"
+              },
+              "type": [
+                "object",
+                {
+                  "bucket": "string",
+                  "key": "string",
+                  "region": "string"
+                }
+              ]
+            },
+            "defaults": null,
+            "outputs": {
+              "value": {
+                "acl_master_token": "52c72dea-5902-4cc1-a2c8-06be4e6e4775",
+                "ad_admin": "SVawsad",
+                "ad_dns_ips_onprem": "10.101.5.3",
+                "ad_domain_onprem": "va.cinc.local",
+                "ad_ou": "OU=AWS,OU=Corvesta Servers,DC=va,DC=cinc,DC=local",
+                "ad_password": "EWHLCrzzVz42",
+                "ad_password_onprem": "Vf9#h3?M",
+                "admin_password": "testing123",
+                "atlantis_url": "http://atlantis.mgmt-dr.corvesta.net",
+                "bitbucket_user": "cv-devops",
+                "bitbucket_user_token": "YS9zabREKTeerPKuUBS3",
+                "concourse_db_password": "fewknow29",
+                "concourseci_cidr": "10.92.36.0/24",
+                "consul_acm_cert_arn": "arn:aws:acm:us-west-2:038131160342:certificate/e2ee1008-3a66-4afc-b9e8-e2c5ce8d4626",
+                "consul_agent_version": "1.0.1",
+                "consul_ami": "ami-0884bd2e8158ceda1",
+                "consul_key": "Xg07DSAQ3oWtP1pUWSAlEA==",
+                "datadog_api_key": "na",
+                "datadog_rabbitmq_password": "",
+                "dba_keypair": "terraform-dba",
+                "default_keypair": "terraform-mgmt",
+                "default_region": "us-west-2",
+                "domain_name": "corvesta.net",
+                "elasticsearch_instance_type": "r3.large.elasticsearch",
+                "elasticsearch_version": "6.4",
+                "he_ddva_ddva_answers": "na",
+                "he_ddva_ddva_app": "na",
+                "he_ddva_ddva_connector": "na",
+                "he_ddva_ddva_jms": "na",
+                "he_ddva_dw": "na",
+                "healthedge_cidrs": "172.23.4.0/24",
+                "kube_cidr_block": "10.92.56.0/21",
+                "logstash_gelf_port": "12201",
+                "logstash_tcp_port": "5000",
+                "logstash_udp_port": "5001",
+                "office_cidr_blocks": "10.101.0.0/16,10.103.0.0/16,10.122.0.0/23,10.123.0.0/23,10.124.0.0/23,10.155.1.0/24",
+                "office_dns_addresses": "10.101.5.2/32,10.101.5.3/32",
+                "private_cidr_block": "10.92.32.0/21",
+                "public_cidr_block": "10.92.48.0/21",
+                "qliknprint_instance_type": "c4.4xlarge",
+                "qliksense_instance_type": "z1d.3xlarge",
+                "rabbit_password": "123testing",
+                "rabbitmq_cookie": "PWHMTIEOWATSGQSVWAJS",
+                "repo_white_list": "bitbucket.org/corvesta/*",
+                "run_env": "mgmt-dr",
+                "siteminder_ips": "na",
+                "spoke_tag": "transitdrtestvpc:spoke",
+                "transit_vpc_cidr_block": "10.91.32.0/19",
+                "vault_acm_cert_arn": "arn:aws:acm:us-west-2:038131160342:certificate/e2ee1008-3a66-4afc-b9e8-e2c5ce8d4626",
+                "verint_ip_list": "66.151.98.121/32",
+                "vpc_cidr_block": "10.92.32.0/19",
+                "vpc_name": "CV-MGMT-DR",
+                "wildcard_cert_arn": "arn:aws:acm:us-west-2:038131160342:certificate/e2ee1008-3a66-4afc-b9e8-e2c5ce8d4626",
+                "workspace": "management-dr"
+              },
+              "type": [
+                "object",
+                {
+                  "acl_master_token": "string",
+                  "ad_admin": "string",
+                  "ad_dns_ips_onprem": "string",
+                  "ad_domain_onprem": "string",
+                  "ad_ou": "string",
+                  "ad_password": "string",
+                  "ad_password_onprem": "string",
+                  "admin_password": "string",
+                  "atlantis_url": "string",
+                  "bitbucket_user": "string",
+                  "bitbucket_user_token": "string",
+                  "concourse_db_password": "string",
+                  "concourseci_cidr": "string",
+                  "consul_acm_cert_arn": "string",
+                  "consul_agent_version": "string",
+                  "consul_ami": "string",
+                  "consul_key": "string",
+                  "datadog_api_key": "string",
+                  "datadog_rabbitmq_password": "string",
+                  "dba_keypair": "string",
+                  "default_keypair": "string",
+                  "default_region": "string",
+                  "domain_name": "string",
+                  "elasticsearch_instance_type": "string",
+                  "elasticsearch_version": "string",
+                  "he_ddva_ddva_answers": "string",
+                  "he_ddva_ddva_app": "string",
+                  "he_ddva_ddva_connector": "string",
+                  "he_ddva_ddva_jms": "string",
+                  "he_ddva_dw": "string",
+                  "healthedge_cidrs": "string",
+                  "kube_cidr_block": "string",
+                  "logstash_gelf_port": "string",
+                  "logstash_tcp_port": "string",
+                  "logstash_udp_port": "string",
+                  "office_cidr_blocks": "string",
+                  "office_dns_addresses": "string",
+                  "private_cidr_block": "string",
+                  "public_cidr_block": "string",
+                  "qliknprint_instance_type": "string",
+                  "qliksense_instance_type": "string",
+                  "rabbit_password": "string",
+                  "rabbitmq_cookie": "string",
+                  "repo_white_list": "string",
+                  "run_env": "string",
+                  "siteminder_ips": "string",
+                  "spoke_tag": "string",
+                  "transit_vpc_cidr_block": "string",
+                  "vault_acm_cert_arn": "string",
+                  "verint_ip_list": "string",
+                  "vpc_cidr_block": "string",
+                  "vpc_name": "string",
+                  "wildcard_cert_arn": "string",
+                  "workspace": "string"
+                }
+              ]
+            },
+            "workspace": null
+          }
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "terraform_remote_state",
+      "name": "transit",
+      "provider": "provider[\"terraform.io/builtin/terraform\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "backend": "s3",
+            "config": {
+              "value": {
+                "bucket": "cv-terraform-backend",
+                "key": "terraform-state/transit/transit/terraform.tfstate",
+                "region": "us-east-1"
+              },
+              "type": [
+                "object",
+                {
+                  "bucket": "string",
+                  "key": "string",
+                  "region": "string"
+                }
+              ]
+            },
+            "defaults": null,
+            "outputs": {
+              "value": {
+                "checkpoint_cidrs": "10.91.51.0/26,10.91.51.64/26,10.91.51.128/26",
+                "checkpoint_public_subnet_ids": "subnet-0ab8d3d3ef876b9ac,subnet-027684446f3b1af92,subnet-0bd120f81b1a2a590",
+                "checkpoint_subnet_ids": "subnet-09d57317e5e4982d7,subnet-0b6f1eacdd9246415,subnet-0dae3d6a9535f3f53",
+                "common_private_cidrs": "10.91.53.0/26,10.91.53.64/26,10.91.53.128/26",
+                "common_private_subnet_ids": "subnet-087a7b7bec31e0e8f,subnet-0e45560344e86805e,subnet-0fd2952a9ed02bfdc",
+                "mgmt_cidrs": "10.91.49.0/26,10.91.49.64/26,10.91.49.128/26",
+                "mgmt_subnet_ids": "subnet-0fc92cfd60ba435f7,subnet-072bacbdeda67aa1d,subnet-04f13e855e67817c9",
+                "run_env": "mgmt",
+                "transit_s3_bucket": "cv-service-transit",
+                "transit_vpc_cidr": "10.91.32.0/19",
+                "transit_vpc_id": "vpc-063a5c0b8266235a5",
+                "vpn_cidrs": "10.91.50.0/26,10.91.50.64/26,10.91.50.128/26",
+                "vpn_subnet_ids": "subnet-0cd75247cd4e46751,subnet-0a0317774b7774b23,subnet-0145fa5ef86e3d890",
+                "vsrx_security_group_id": "sg-0487a5bdc9bdb5177"
+              },
+              "type": [
+                "object",
+                {
+                  "checkpoint_cidrs": "string",
+                  "checkpoint_public_subnet_ids": "string",
+                  "checkpoint_subnet_ids": "string",
+                  "common_private_cidrs": "string",
+                  "common_private_subnet_ids": "string",
+                  "mgmt_cidrs": "string",
+                  "mgmt_subnet_ids": "string",
+                  "run_env": "string",
+                  "transit_s3_bucket": "string",
+                  "transit_vpc_cidr": "string",
+                  "transit_vpc_id": "string",
+                  "vpn_cidrs": "string",
+                  "vpn_subnet_ids": "string",
+                  "vsrx_security_group_id": "string"
+                }
+              ]
+            },
+            "workspace": null
+          }
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "terraform_remote_state",
+      "name": "vpc",
+      "provider": "provider[\"terraform.io/builtin/terraform\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "backend": "s3",
+            "config": {
+              "value": {
+                "bucket": "cv-terraform-backend",
+                "key": "terraform-state/development/vpc/terraform.tfstate",
+                "region": "us-east-1"
+              },
+              "type": [
+                "object",
+                {
+                  "bucket": "string",
+                  "key": "string",
+                  "region": "string"
+                }
+              ]
+            },
+            "defaults": null,
+            "outputs": {
+              "value": {
+                "account_id": "658620301396",
+                "app_subnet_cidr_blocks": "10.90.2.0/26,10.90.2.64/26,10.90.2.128/26",
+                "app_subnet_ids": "subnet-7bf8c954,subnet-df24df95,subnet-fc81b6a1",
+                "data_subnet_cidr_blocks": "10.90.3.0/26,10.90.3.64/26,10.90.3.128/26",
+                "data_subnet_ids": "subnet-3cf2c313,subnet-1f20db55,subnet-b982b5e4",
+                "default_nacl_id": "acl-2516085e",
+                "dns_ip_addresses": [
+                  "10.90.2.107",
+                  "10.90.2.22"
+                ],
+                "dns_ip_addresses_joined": "10.90.2.107,10.90.2.22",
+                "hostedzone_id": "Z2RTDQ6LBZ06JS",
+                "internet_subnet_cidr_blocks": "10.90.6.0/26,10.90.6.64/26,10.90.6.128/26",
+                "internet_subnet_ids": "subnet-021b689c7680dec05,subnet-083a6c02091c5c4ef,subnet-0078accd2f96aa8b6",
+                "jobs_subnet_cidr_blocks": "10.90.5.0/26,10.90.5.64/26,10.90.5.128/26",
+                "jobs_subnet_ids": "subnet-0273063b88ddee7db,subnet-004e717afd3f51b45,subnet-0c57ced311462a711",
+                "kube_subnet_cidr_blocks": "10.90.24.0/23,10.90.26.0/23,10.90.28.0/23",
+                "kube_subnet_ids": "subnet-06e5f1a8e0cffba28,subnet-06691e64d25309c15,subnet-0acebfcc444cb1897",
+                "lambda_subnet_ids": "subnet-0eb311d2ebc0756f9,subnet-0b8df110604845b52,subnet-0619c4a2cbb9a03e0",
+                "nginx_nlb_dns": "ferry.dev.corvesta.net",
+                "nginx_nlb_proxy_arn": "arn:aws:elasticloadbalancing:us-east-1:658620301396:loadbalancer/net/dev-nginx-nlb-proxy/7099a808affd29b6",
+                "nginx_nlb_tg_proxy_arn": "arn:aws:elasticloadbalancing:us-east-1:658620301396:targetgroup/dev-nginx-tg-proxy/2cd22b408d9da827",
+                "no_auth_subnet_cidr_blocks": "10.90.16.0/25,10.90.16.128/25,10.90.17.0/25",
+                "no_auth_subnet_ids": "subnet-045452fef0f3301af,subnet-0686e3d2b27e00ae3,subnet-0fbebe3267db3ca96",
+                "proxy_subnet_cidr_blocks": "10.90.4.0/26,10.90.4.64/26,10.90.4.128/26",
+                "proxy_subnet_ids": "subnet-0021087673faf3773,subnet-04e9c5ec329877022,subnet-0b241a529c10da665",
+                "service_subnet_cidr_blocks": "10.90.18.0/23,10.90.20.0/23,10.90.22.0/23",
+                "service_subnet_ids": "subnet-06268e63589d31372,subnet-048c0d73e4c238c2f,subnet-09d98024fc4741751",
+                "tools_subnet_cidr_blocks": "10.90.0.0/26,10.90.0.64/26,10.90.0.128/26",
+                "tools_subnet_ids": "subnet-02b2bb1a32824ca51,subnet-08ee40ef0608d7a23,subnet-0145ff0a09d569794",
+                "transfer_nic_ids": [
+                  "eni-055688dd3b9d94db6",
+                  "eni-0d794457e64784df4"
+                ],
+                "transfer_vpc_endpoint": "vpce-04d3dcaf824961fa6",
+                "vpc_cidr_block": "10.90.0.0/19",
+                "vpc_id": "vpc-23e36058",
+                "vpc_peering_id": "pcx-03d2ceb2d398b7510",
+                "vpc_peering_prod_to_proddr_id": "",
+                "web_subnet_cidr_blocks": "10.90.1.0/26,10.90.1.64/26,10.90.1.128/26",
+                "web_subnet_ids": "subnet-edf3c2c2,subnet-7824df32,subnet-7686b12b"
+              },
+              "type": [
+                "object",
+                {
+                  "account_id": "string",
+                  "app_subnet_cidr_blocks": "string",
+                  "app_subnet_ids": "string",
+                  "data_subnet_cidr_blocks": "string",
+                  "data_subnet_ids": "string",
+                  "default_nacl_id": "string",
+                  "dns_ip_addresses": [
+                    "set",
+                    "string"
+                  ],
+                  "dns_ip_addresses_joined": "string",
+                  "hostedzone_id": "string",
+                  "internet_subnet_cidr_blocks": "string",
+                  "internet_subnet_ids": "string",
+                  "jobs_subnet_cidr_blocks": "string",
+                  "jobs_subnet_ids": "string",
+                  "kube_subnet_cidr_blocks": "string",
+                  "kube_subnet_ids": "string",
+                  "lambda_subnet_ids": "string",
+                  "nginx_nlb_dns": "string",
+                  "nginx_nlb_proxy_arn": "string",
+                  "nginx_nlb_tg_proxy_arn": "string",
+                  "no_auth_subnet_cidr_blocks": "string",
+                  "no_auth_subnet_ids": "string",
+                  "proxy_subnet_cidr_blocks": "string",
+                  "proxy_subnet_ids": "string",
+                  "service_subnet_cidr_blocks": "string",
+                  "service_subnet_ids": "string",
+                  "tools_subnet_cidr_blocks": "string",
+                  "tools_subnet_ids": "string",
+                  "transfer_nic_ids": [
+                    "set",
+                    "string"
+                  ],
+                  "transfer_vpc_endpoint": "string",
+                  "vpc_cidr_block": "string",
+                  "vpc_id": "string",
+                  "vpc_peering_id": "string",
+                  "vpc_peering_prod_to_proddr_id": "string",
+                  "web_subnet_cidr_blocks": "string",
+                  "web_subnet_ids": "string"
+                }
+              ]
+            },
+            "workspace": null
+          }
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "appstream_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-04fbc6635dce28835",
+            "description": "Allow connections to appstream from VPN and VPC",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-04fbc6635dce28835",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "appstream-image",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "appstream-image"
+            },
+            "tags_all": {
+              "Name": "appstream-image"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "data.aws_vpc.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "clamav-daemon",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-049f93f2a6f631619",
+            "description": "Clam AV Daemon security group",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-049f93f2a6f631619",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.122.0.0/23"
+                ],
+                "description": "",
+                "from_port": 3310,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 3310
+              },
+              {
+                "cidr_blocks": [
+                  "10.123.0.0/23"
+                ],
+                "description": "",
+                "from_port": 3310,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 3310
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 3310,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 3310
+              }
+            ],
+            "name": "dev-clamav-daemon",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "dev-clamav-daemon"
+            },
+            "tags_all": {
+              "Name": "dev-clamav-daemon"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "concourse_mgmt_vpc",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-03bf58cd38f78aa8a",
+            "description": "Allow concourse ci to connect to spoke VPCs for deployments",
+            "egress": [],
+            "id": "sg-03bf58cd38f78aa8a",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.90.32.0/21"
+                ],
+                "description": "",
+                "from_port": 22,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 22
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.32.0/21"
+                ],
+                "description": "",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.32.0/21"
+                ],
+                "description": "",
+                "from_port": 4646,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 4646
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.32.0/21"
+                ],
+                "description": "",
+                "from_port": 5432,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5432
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.32.0/21"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.32.0/21"
+                ],
+                "description": "",
+                "from_port": 8500,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8500
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "concourse-mgmt-vpc",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "concourse-deployment"
+            },
+            "tags_all": {
+              "Name": "concourse-deployment"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "consul",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-c08ff1b6",
+            "description": "Consul server access from other servers and clients",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-c08ff1b6",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 8600,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8600
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 8300,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [
+                  "sg-9d8cf2eb"
+                ],
+                "self": false,
+                "to_port": 8301
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 8300,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": true,
+                "to_port": 8302
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 8301,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "udp",
+                "security_groups": [
+                  "sg-9d8cf2eb"
+                ],
+                "self": false,
+                "to_port": 8301
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 8301,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "udp",
+                "security_groups": [],
+                "self": true,
+                "to_port": 8302
+              }
+            ],
+            "name": "consul",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "consul"
+            },
+            "tags_all": {
+              "Name": "consul"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "consul_client",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-9d8cf2eb",
+            "description": "Consul client access from servers and other clients",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-9d8cf2eb",
+            "ingress": [
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 8300,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [
+                  "sg-c08ff1b6"
+                ],
+                "self": false,
+                "to_port": 8301
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 8301,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [
+                  "sg-c08ff1b6"
+                ],
+                "self": true,
+                "to_port": 8301
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 8301,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "udp",
+                "security_groups": [
+                  "sg-c08ff1b6"
+                ],
+                "self": true,
+                "to_port": 8301
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 8500,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [
+                  "sg-c08ff1b6"
+                ],
+                "self": false,
+                "to_port": 8501
+              }
+            ],
+            "name": "consul-client",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "consul-client"
+            },
+            "tags_all": {
+              "Name": "consul-client"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "consul_http_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-088cf27e",
+            "description": "Allow HTTP connections to Consul",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-088cf27e",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 8500,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8501
+              },
+              {
+                "cidr_blocks": [
+                  "10.155.1.0/24"
+                ],
+                "description": "",
+                "from_port": 8500,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8501
+              },
+              {
+                "cidr_blocks": [
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 8500,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8501
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 8300,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8301
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.32.0/19"
+                ],
+                "description": "",
+                "from_port": 8500,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8501
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.36.0/24",
+                  "10.151.1.0/24"
+                ],
+                "description": "",
+                "from_port": 8500,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8501
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "consul-http-internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "consul-http-internal"
+            },
+            "tags_all": {
+              "Name": "consul-http-internal"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "dependencies": [
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "devops_lambda_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-05102b67c9df9e35f",
+            "description": "Allow devops lambda jobs to communicate with the aws resources",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-05102b67c9df9e35f",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "devops_lambda",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {},
+            "tags_all": {},
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "ecs_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-9a87f9ec",
+            "description": "Allow standard HTTP(S) to ECS cluster services from VPC and VPN",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-9a87f9ec",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 32768,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 61000
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "ecs-internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "ecs-internal"
+            },
+            "tags_all": {
+              "Name": "ecs-internal"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "efs_volume",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-042eaffa8873498df",
+            "description": "Allow access for kubernetes and concourse to connect to efs volumes",
+            "egress": [],
+            "id": "sg-042eaffa8873498df",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19",
+                  "10.90.36.0/24"
+                ],
+                "description": "",
+                "from_port": 111,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 111
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19",
+                  "10.90.36.0/24"
+                ],
+                "description": "",
+                "from_port": 111,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "udp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 111
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19",
+                  "10.90.36.0/24"
+                ],
+                "description": "",
+                "from_port": 2049,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 2049
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19",
+                  "10.90.36.0/24"
+                ],
+                "description": "",
+                "from_port": 2049,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "udp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 2049
+              }
+            ],
+            "name": "efs_volume",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "efs_internal"
+            },
+            "tags_all": {
+              "Name": "efs_internal"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "elasticsearch_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-3d8bf54b",
+            "description": "Allow loggers to hit elasticsearch",
+            "egress": [],
+            "id": "sg-3d8bf54b",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 9200,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 9200
+              },
+              {
+                "cidr_blocks": [
+                  "10.112.0.0/16",
+                  "172.22.0.0/16",
+                  "10.31.0.0/16",
+                  "10.33.0.0/23",
+                  "10.33.2.0/23",
+                  "192.168.240.0/24",
+                  "192.168.111.0/24",
+                  "10.34.0.0/16",
+                  "10.50.0.0/16"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 9200
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 9200,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 9200
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.36.0/24"
+                ],
+                "description": "",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.36.0/24"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "elasticsearch",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {},
+            "tags_all": {},
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.aws_vpc.this",
+            "data.terraform_remote_state.config"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "elb_sg",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-a78af4d1",
+            "description": "Allow HTTP(S) connections from the VPC and VPN",
+            "egress": [],
+            "id": "sg-a78af4d1",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19",
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.90.32.0/19",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 8200,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8200
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "038131160342/sg-08189874ba36c680c",
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": true,
+                "to_port": 0
+              }
+            ],
+            "name": "vault",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": null,
+            "tags": {
+              "Name": "vault"
+            },
+            "tags_all": {
+              "Name": "vault"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "he_proxy_connect",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-058f9600e6b558117",
+            "description": "Allow connection on port 9191 for HealthEdge",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-058f9600e6b558117",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": null,
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              },
+              {
+                "cidr_blocks": [
+                  "10.112.0.0/16",
+                  "172.22.0.0/16",
+                  "10.31.0.0/16",
+                  "10.33.0.0/23",
+                  "10.33.2.0/23",
+                  "192.168.240.0/24",
+                  "192.168.111.0/24"
+                ],
+                "description": null,
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": null,
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": null,
+                "from_port": 5559,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5559
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": null,
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": null,
+                "from_port": 9191,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 9191
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.192.0/19"
+                ],
+                "description": null,
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.192.0/19"
+                ],
+                "description": null,
+                "from_port": 5559,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5559
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.192.0/19"
+                ],
+                "description": null,
+                "from_port": 8080,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8080
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.192.0/19"
+                ],
+                "description": null,
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.192.0/19"
+                ],
+                "description": null,
+                "from_port": 9191,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 9191
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.32.0/19"
+                ],
+                "description": null,
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.32.0/21"
+                ],
+                "description": null,
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.91.53.0/26",
+                  "10.91.53.64/26",
+                  "10.91.53.128/26"
+                ],
+                "description": null,
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [
+                  "172.23.4.0/24",
+                  "100.112.4.0/24",
+                  "100.112.31.0/24"
+                ],
+                "description": null,
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "172.23.4.0/24",
+                  "100.112.4.0/24",
+                  "100.112.31.0/24"
+                ],
+                "description": null,
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [
+                  "sg-331af745"
+                ],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [],
+                "description": null,
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "he-proxy-connect",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "he-proxy-connect"
+            },
+            "tags_all": {
+              "Name": "he-proxy-connect"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.aws_vpc.this",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.transit"
+          ],
+          "create_before_destroy": true
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "http_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-3d8df34b",
+            "description": "Allow HTTP connections from the VPN and VPC",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-3d8df34b",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": null,
+                "from_port": 32770,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 32770
+              },
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": null,
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8200
+              },
+              {
+                "cidr_blocks": [
+                  "10.102.1.0/24"
+                ],
+                "description": null,
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.112.0.0/16",
+                  "172.22.0.0/16",
+                  "10.31.0.0/16",
+                  "10.33.0.0/23",
+                  "10.33.2.0/23",
+                  "192.168.240.0/24",
+                  "192.168.111.0/24",
+                  "10.34.0.0/16",
+                  "10.50.0.0/16"
+                ],
+                "description": null,
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.30.0.0/16",
+                  "10.50.0.0/16",
+                  "10.54.0.0/16",
+                  "10.112.0.0/16",
+                  "172.22.0.0/16",
+                  "10.31.0.0/16",
+                  "10.33.0.0/23",
+                  "10.33.2.0/23",
+                  "192.168.240.0/24",
+                  "192.168.111.0/24"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": null,
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": null,
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": null,
+                "from_port": 8200,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8200
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.192.0/19"
+                ],
+                "description": null,
+                "from_port": 32770,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 32770
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.192.0/19"
+                ],
+                "description": null,
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8200
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.32.0/19"
+                ],
+                "description": null,
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.32.0/21"
+                ],
+                "description": null,
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.91.53.0/26",
+                  "10.91.53.64/26",
+                  "10.91.53.128/26"
+                ],
+                "description": null,
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [
+                  "172.23.4.0/24",
+                  "100.112.4.0/24",
+                  "100.112.31.0/24"
+                ],
+                "description": null,
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "172.23.4.0/24",
+                  "100.112.4.0/24",
+                  "100.112.31.0/24"
+                ],
+                "description": null,
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [],
+                "description": null,
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "http-internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "http-internal"
+            },
+            "tags_all": {
+              "Name": "http-internal"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.aws_vpc.this",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.transit"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "kafka_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-0d19079f6b6261985",
+            "description": "Allow connections to Kafka from VPN and VPC",
+            "egress": [],
+            "id": "sg-0d19079f6b6261985",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 2181,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 2181
+              },
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 27017,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 27017
+              },
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 5432,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5432
+              },
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 9092,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 9092
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.3.0/26",
+                  "10.90.3.64/26",
+                  "10.90.3.128/26"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "kafka-internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "kafka-internal"
+            },
+            "tags_all": {
+              "Name": "kafka-internal"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "logstash_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-2394ea55",
+            "description": "Allow logstash connections from within the VPC and offices",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-2394ea55",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 12201,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "udp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 12201
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 5000,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5002
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 5001,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "udp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5001
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 5044,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5044
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 8000,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8000
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "logstash-internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "logstash-internal"
+            },
+            "tags_all": {
+              "Name": "logstash-internal"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "lucy_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-0f9c6286e44cbc044",
+            "description": "Allow connections to Lucy from Transit VPC",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-0f9c6286e44cbc044",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [
+                  "10.91.32.0/19"
+                ],
+                "description": "",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.91.32.0/19"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              }
+            ],
+            "name": "lucy_internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "lucy_internal"
+            },
+            "tags_all": {
+              "Name": "lucy_internal"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "data.aws_vpc.this",
+            "data.terraform_remote_state.config"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "mongodb_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-6101762a",
+            "description": "Allow connections to MongoDB from VPN and VPC",
+            "egress": [],
+            "id": "sg-6101762a",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 27017,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 27017
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 27017,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 27017
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "mongodb-internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "mongodb-internal"
+            },
+            "tags_all": {
+              "Name": "mongodb-internal"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "nomad",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-0828026929ca64eb0",
+            "description": "Allow nomad client and server connections in VPC",
+            "egress": [],
+            "id": "sg-0828026929ca64eb0",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 4646,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 4648
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 4648,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "udp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 4648
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "nomad",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "nomad_internal"
+            },
+            "tags_all": {
+              "Name": "nomad_internal"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "nomad_http_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-0d8a3e748e620e37e",
+            "description": "Allow HTTP connections to nomad",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-0d8a3e748e620e37e",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.151.1.0/24"
+                ],
+                "description": "",
+                "from_port": 4646,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 4646
+              },
+              {
+                "cidr_blocks": [
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 4646,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 4646
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19",
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24"
+                ],
+                "description": "",
+                "from_port": 4646,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 4646
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "nomad-http-internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "nomad-http-internal"
+            },
+            "tags_all": {
+              "Name": "nomad-http-internal"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "outbound_office_dns",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-0321febbf4c5e9a80",
+            "description": "Allow route53 resolver to use our domain controllers for va.cinc.local DNS queries",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "10.101.5.2/32",
+                  "10.101.5.3/32"
+                ],
+                "description": "",
+                "from_port": 53,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 53
+              },
+              {
+                "cidr_blocks": [
+                  "10.101.5.2/32",
+                  "10.101.5.3/32"
+                ],
+                "description": "",
+                "from_port": 53,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "udp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 53
+              }
+            ],
+            "id": "sg-0321febbf4c5e9a80",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 53,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 53
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 53,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "udp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 53
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "outbount_office_dns",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "outbound_office_dns"
+            },
+            "tags_all": {
+              "Name": "outbound_office_dns"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "portal_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-0d803b23633ebf3c9",
+            "description": "Allow connections to Portal from Lucy SG",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-0d803b23633ebf3c9",
+            "ingress": [
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [
+                  "sg-0f9c6286e44cbc044"
+                ],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [
+                  "sg-0f9c6286e44cbc044"
+                ],
+                "self": false,
+                "to_port": 80
+              }
+            ],
+            "name": "portal_internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "portal_internal"
+            },
+            "tags_all": {
+              "Name": "portal_internal"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "postgresql_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-618cf217",
+            "description": "Allow connections to PostgreSQL from VPN and VPC",
+            "egress": [],
+            "id": "sg-618cf217",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24",
+                  "10.112.20.0/23",
+                  "10.50.0.0/16",
+                  "10.54.0.0/16"
+                ],
+                "description": "",
+                "from_port": 5432,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5432
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": null,
+                "from_port": 5432,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5432
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.192.0/21"
+                ],
+                "description": "",
+                "from_port": 5432,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5432
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.36.0/24"
+                ],
+                "description": "",
+                "from_port": 5432,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5432
+              },
+              {
+                "cidr_blocks": [],
+                "description": null,
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "postgresql-internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "postgresql-internal"
+            },
+            "tags_all": {
+              "Name": "postgresql-internal"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.aws_vpc.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "postgresql_mgmt_vpc",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-5d41fa15",
+            "description": "Allow connections to PostgreSQL from MGMT VPC",
+            "egress": [],
+            "id": "sg-5d41fa15",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.90.32.0/21"
+                ],
+                "description": "",
+                "from_port": 5432,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5432
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "postgresql-mgmt-vpc",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "postgresql-internal"
+            },
+            "tags_all": {
+              "Name": "postgresql-internal"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "rabbitmq_nodes",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-1c85fb6a",
+            "description": "Security Group for the rabbitmq nodes",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-1c85fb6a",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 15672,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 15672
+              },
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 5672,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5672
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 15672,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 15672
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 22,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 22
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 4369,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 4369
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 5672,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 5672
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": true,
+                "to_port": 0
+              }
+            ],
+            "name": "rabbitmq-nodes",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "rabbitmq nodes"
+            },
+            "tags_all": {
+              "Name": "rabbitmq nodes"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "rdp_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-ce2d5a85",
+            "description": "Allow RDP connections from the VPN and VPC",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-ce2d5a85",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 3389,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 3389
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 3389,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 3389
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "rdp-internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "rdp-internal"
+            },
+            "tags_all": {
+              "Name": "rdp-internal"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "scan-engine",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-04ce3c802694a98fc",
+            "description": "Allow InsightVM to run internal scans",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24",
+                  "10.112.20.0/23",
+                  "10.50.0.0/16",
+                  "10.54.0.0/16"
+                ],
+                "description": "",
+                "from_port": 40815,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 40815
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": null,
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-04ce3c802694a98fc",
+            "ingress": [],
+            "name": "scan-engine",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "scan-engine"
+            },
+            "tags_all": {
+              "Name": "scan-engine"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "data.aws_vpc.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "scan-targets",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-07777e68dd4e94009",
+            "description": "Allow InsightVM to run internal scans",
+            "egress": [],
+            "id": "sg-07777e68dd4e94009",
+            "ingress": [
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "scan-targets",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "scan-targets"
+            },
+            "tags_all": {
+              "Name": "scan-targets"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "ssh_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-8c8ef0fa",
+            "description": "Allow SSH connections from the VPN and VPC",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-8c8ef0fa",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 8,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "icmp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              },
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24"
+                ],
+                "description": "",
+                "from_port": 22,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 22
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19",
+                  "10.102.1.0/24"
+                ],
+                "description": "",
+                "from_port": 22,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 22
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "ssh-internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "ssh-internal"
+            },
+            "tags_all": {
+              "Name": "ssh-internal"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.aws_vpc.this"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "test",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-f08ef086",
+            "description": "Allow HTTP connections from the VPN and VPC",
+            "egress": [],
+            "id": "sg-f08ef086",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "name": "test",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "test"
+            },
+            "tags_all": {
+              "Name": "test"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "vault",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-a78af4d1",
+            "description": "Allow HTTP(S) connections from the VPC and VPN",
+            "egress": [],
+            "id": "sg-a78af4d1",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.101.0.0/16",
+                  "10.103.0.0/16",
+                  "10.122.0.0/23",
+                  "10.123.0.0/23",
+                  "10.124.0.0/23",
+                  "10.155.1.0/24",
+                  "10.151.1.0/24",
+                  "10.158.1.0/24",
+                  "10.90.32.0/19"
+                ],
+                "description": "",
+                "from_port": 8200,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8200
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.0.0/19"
+                ],
+                "description": "",
+                "from_port": 8200,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 8200
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [
+                  "sg-04ce3c802694a98fc"
+                ],
+                "self": false,
+                "to_port": 0
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": true,
+                "to_port": 0
+              }
+            ],
+            "name": "vault",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "vault"
+            },
+            "tags_all": {
+              "Name": "vault"
+            },
+            "timeouts": {
+              "create": null,
+              "delete": null
+            },
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.mgmt_config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "vpc_ep_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-018fe440d99a6914d",
+            "description": "Allow connections to VPC EP from Portal SG",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-018fe440d99a6914d",
+            "ingress": [
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [
+                  "sg-0d803b23633ebf3c9"
+                ],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [
+                  "sg-0d803b23633ebf3c9"
+                ],
+                "self": false,
+                "to_port": 80
+              }
+            ],
+            "name": "vpc_ep_internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "vpc_ep_internal"
+            },
+            "tags_all": {
+              "Name": "vpc_ep_internal"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6NjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group",
+      "name": "wrangler_internal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group/sg-04d99c9f5523dd532",
+            "description": "Allow connections to wrangler from HealthEdge and Services",
+            "egress": [
+              {
+                "cidr_blocks": [
+                  "0.0.0.0/0"
+                ],
+                "description": "",
+                "from_port": 0,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "-1",
+                "security_groups": [],
+                "self": false,
+                "to_port": 0
+              }
+            ],
+            "id": "sg-04d99c9f5523dd532",
+            "ingress": [
+              {
+                "cidr_blocks": [
+                  "10.90.18.0/23",
+                  "10.90.20.0/23",
+                  "10.90.22.0/23"
+                ],
+                "description": "",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.18.0/23",
+                  "10.90.20.0/23",
+                  "10.90.22.0/23"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.4.0/26",
+                  "10.90.4.64/26",
+                  "10.90.4.128/26"
+                ],
+                "description": "",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "10.90.4.0/26",
+                  "10.90.4.64/26",
+                  "10.90.4.128/26"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [
+                  "100.112.4.0/24"
+                ],
+                "description": "",
+                "from_port": 443,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 443
+              },
+              {
+                "cidr_blocks": [
+                  "100.112.4.0/24"
+                ],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [],
+                "self": false,
+                "to_port": 80
+              },
+              {
+                "cidr_blocks": [],
+                "description": "",
+                "from_port": 80,
+                "ipv6_cidr_blocks": [],
+                "prefix_list_ids": [],
+                "protocol": "tcp",
+                "security_groups": [
+                  "sg-018fe440d99a6914d"
+                ],
+                "self": false,
+                "to_port": 443
+              }
+            ],
+            "name": "wrangler_internal",
+            "name_prefix": "",
+            "owner_id": "658620301396",
+            "revoke_rules_on_delete": false,
+            "tags": {
+              "Name": "wrangler_internal"
+            },
+            "tags_all": {
+              "Name": "wrangler_internal"
+            },
+            "timeouts": null,
+            "vpc_id": "vpc-23e36058"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsImRlbGV0ZSI6OTAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0=",
+          "dependencies": [
+            "aws_security_group.vpc_ep_internal",
+            "data.aws_vpc.this",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "allow_443_from_lucy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 443,
+            "id": "sgrule-4089277405",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-0d803b23633ebf3c9",
+            "self": false,
+            "source_security_group_id": "sg-0f9c6286e44cbc044",
+            "to_port": 443,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.lucy_internal",
+            "aws_security_group.portal_internal",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "allow_443_from_portal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 443,
+            "id": "sgrule-436779180",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-018fe440d99a6914d",
+            "self": false,
+            "source_security_group_id": "sg-0d803b23633ebf3c9",
+            "to_port": 443,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.portal_internal",
+            "aws_security_group.vpc_ep_internal",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "allow_80_from_lucy",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 80,
+            "id": "sgrule-2261314271",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-0d803b23633ebf3c9",
+            "self": false,
+            "source_security_group_id": "sg-0f9c6286e44cbc044",
+            "to_port": 80,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.lucy_internal",
+            "aws_security_group.portal_internal",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "allow_80_from_portal",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 80,
+            "id": "sgrule-3079212382",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-018fe440d99a6914d",
+            "self": false,
+            "source_security_group_id": "sg-0d803b23633ebf3c9",
+            "to_port": 80,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.portal_internal",
+            "aws_security_group.vpc_ep_internal",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "clam_av_daemon_ingress",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [
+              "10.90.0.0/19"
+            ],
+            "description": "",
+            "from_port": 3310,
+            "id": "sgrule-281031329",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-049f93f2a6f631619",
+            "self": false,
+            "source_security_group_id": null,
+            "to_port": 3310,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.clamav-daemon",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "consul_client_serf_lan_tcp_consul",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 8301,
+            "id": "sgrule-2952919682",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-9d8cf2eb",
+            "self": false,
+            "source_security_group_id": "sg-c08ff1b6",
+            "to_port": 8301,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.consul",
+            "aws_security_group.consul_client",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "consul_client_serf_lan_tcp_self",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 8301,
+            "id": "sgrule-3530758107",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-9d8cf2eb",
+            "self": true,
+            "source_security_group_id": "sg-9d8cf2eb",
+            "to_port": 8301,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.consul_client",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "consul_client_serf_lan_udp_consul",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 8301,
+            "id": "sgrule-613572091",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "udp",
+            "security_group_id": "sg-9d8cf2eb",
+            "self": false,
+            "source_security_group_id": "sg-c08ff1b6",
+            "to_port": 8301,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.consul",
+            "aws_security_group.consul_client",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "consul_client_serf_lan_udp_self",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 8301,
+            "id": "sgrule-1189130402",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "udp",
+            "security_group_id": "sg-9d8cf2eb",
+            "self": true,
+            "source_security_group_id": "sg-9d8cf2eb",
+            "to_port": 8301,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.consul_client",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "consul_http_internal_insightvm_scan_target",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 0,
+            "id": "sgrule-178151639",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "-1",
+            "security_group_id": "sg-088cf27e",
+            "self": false,
+            "source_security_group_id": "sg-04ce3c802694a98fc",
+            "to_port": 0,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.consul_http_internal",
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "consul_serf_lan_udp_consul_client",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 8301,
+            "id": "sgrule-291943069",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "udp",
+            "security_group_id": "sg-c08ff1b6",
+            "self": false,
+            "source_security_group_id": "sg-9d8cf2eb",
+            "to_port": 8301,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.consul",
+            "aws_security_group.consul_client",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "consul_serf_lan_udp_self",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 8301,
+            "id": "sgrule-3229643271",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "udp",
+            "security_group_id": "sg-c08ff1b6",
+            "self": true,
+            "source_security_group_id": "sg-c08ff1b6",
+            "to_port": 8302,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.consul",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "consul_server_rpc_tcp_consul_client",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 8300,
+            "id": "sgrule-1949241422",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-c08ff1b6",
+            "self": false,
+            "source_security_group_id": "sg-9d8cf2eb",
+            "to_port": 8301,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.consul",
+            "aws_security_group.consul_client",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "consul_server_rpc_tcp_self",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 8300,
+            "id": "sgrule-2781466836",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-c08ff1b6",
+            "self": true,
+            "source_security_group_id": "sg-c08ff1b6",
+            "to_port": 8302,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.consul",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "egress",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ],
+            "description": "",
+            "from_port": 0,
+            "id": "sgrule-596776232",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "-1",
+            "security_group_id": "sg-088cf27e",
+            "self": false,
+            "source_security_group_id": null,
+            "to_port": 0,
+            "type": "egress"
+          },
+          "dependencies": [
+            "aws_security_group.consul_http_internal",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "egress_nomad",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [
+              "0.0.0.0/0"
+            ],
+            "description": "",
+            "from_port": 0,
+            "id": "sgrule-3018614901",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "-1",
+            "security_group_id": "sg-0d8a3e748e620e37e",
+            "self": false,
+            "source_security_group_id": null,
+            "to_port": 0,
+            "type": "egress"
+          },
+          "dependencies": [
+            "aws_security_group.nomad_http_internal",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "nomad-http-internal_insightvm_scan_target",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [],
+            "description": "",
+            "from_port": 0,
+            "id": "sgrule-2468497118",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "-1",
+            "security_group_id": "sg-0d8a3e748e620e37e",
+            "self": false,
+            "source_security_group_id": "sg-04ce3c802694a98fc",
+            "to_port": 0,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.nomad_http_internal",
+            "aws_security_group.scan-engine",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "office",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [
+              "10.101.0.0/16",
+              "10.103.0.0/16",
+              "10.122.0.0/23",
+              "10.123.0.0/23",
+              "10.124.0.0/23",
+              "10.155.1.0/24",
+              "10.151.1.0/24",
+              "10.158.1.0/24",
+              "10.90.32.0/19"
+            ],
+            "description": "",
+            "from_port": 8500,
+            "id": "sgrule-3316180187",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-088cf27e",
+            "self": false,
+            "source_security_group_id": null,
+            "to_port": 8501,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.consul_http_internal",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.mgmt_config"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "office_4646",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [
+              "10.101.0.0/16",
+              "10.103.0.0/16",
+              "10.122.0.0/23",
+              "10.123.0.0/23",
+              "10.124.0.0/23",
+              "10.155.1.0/24",
+              "10.151.1.0/24",
+              "10.158.1.0/24"
+            ],
+            "description": "",
+            "from_port": 4646,
+            "id": "sgrule-3393805906",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-0d8a3e748e620e37e",
+            "self": false,
+            "source_security_group_id": null,
+            "to_port": 4646,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.nomad_http_internal",
+            "data.terraform_remote_state.config"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "vpc",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [
+              "10.90.0.0/19",
+              "10.90.36.0/24"
+            ],
+            "description": "",
+            "from_port": 8500,
+            "id": "sgrule-1760153866",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-088cf27e",
+            "self": false,
+            "source_security_group_id": null,
+            "to_port": 8501,
+            "type": "ingress"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "aws_security_group.consul_http_internal",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_security_group_rule",
+      "name": "vpc_4646",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "cidr_blocks": [
+              "10.90.0.0/19"
+            ],
+            "description": "",
+            "from_port": 4646,
+            "id": "sgrule-1860515351",
+            "ipv6_cidr_blocks": [],
+            "prefix_list_ids": [],
+            "protocol": "tcp",
+            "security_group_id": "sg-0d8a3e748e620e37e",
+            "self": false,
+            "source_security_group_id": null,
+            "to_port": 4646,
+            "type": "ingress"
+          },
+          "dependencies": [
+            "aws_security_group.nomad_http_internal",
+            "data.terraform_remote_state.config",
+            "data.terraform_remote_state.vpc"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_vpc_security_group_ingress_rule",
+      "name": "jenkins-vault",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "arn": "arn:aws:ec2:us-east-1:658620301396:security-group-rule/sgr-07bf36546037a87f6",
+            "cidr_ipv4": null,
+            "cidr_ipv6": null,
+            "description": null,
+            "from_port": null,
+            "id": "sgr-07bf36546037a87f6",
+            "ip_protocol": "-1",
+            "prefix_list_id": null,
+            "referenced_security_group_id": "038131160342/sg-08189874ba36c680c",
+            "security_group_id": "sg-a78af4d1",
+            "security_group_rule_id": "sgr-07bf36546037a87f6",
+            "tags": null,
+            "tags_all": {},
+            "to_port": null
+          }
+        }
+      ]
+    }
+  ]
+}
