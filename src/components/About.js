@@ -6,51 +6,51 @@ import deck from '../images/deck.jpg';
 import customBar from '../images/customBar.jpg';
 
 function About() {
-  const projects = [
-    {
-      image: houseProject,
-      title: 'House Project',
-      description: 'A much needed door and siding update for this home along with a nice window size increase to brighten things up inside and bring a more inviting look to the front of the house.',
-    },
-    {
-      image: garageCabnets,
-      title: 'Garage Cabinets',
-      description: "Bringing some style and function to a customer's shop/man cave with this one.  Custom benchtop made from salvaged bowling alley lanes, new corrugated steel backsplash and some nice bright task lighting.",
-    },
-    {
-      image: trimWork,
-      title: 'Trim Work',
-      description: "Here's a little something different for those who appreciate some rustic vintage charm. The customer had salvaged these neat vintage head casings which were just the right size to finish off the top of their new windows in their entry porch.",
-    },
-    {
-      image: deck,
-      title: 'Deck',
-      description: "This client was looking to revive their back deck. Re-decked with TREX Maintenance-Free Composite Decking, complimented with a TREX Railing system and a rebuilt staircase. I imagine lots of summer afternoons and evenings enjoyed out here.",
-    },
-    {
-      image: customBar,
-      title: 'Custom Bar',
-      description: 'Custom made bar for a barn wedding. The bar was made from reclaimed barn wood. The bar was finished with a clear coat to protect the wood and give it a nice shine.',
-    },
-  ];
+const projects = [
+{
+image: houseProject,
+title: 'House Project',
+description: 'A much needed door and siding update for this residential home, enhancing curb appeal with a modern look. We increased window size for improved natural lighting and energy efficiency, perfect for home renovation enthusiasts.',
+},
+{
+image: garageCabnets,
+title: 'Garage Cabinets',
+description: "Transforming a client's shop/man cave with stylish and functional garage cabinets. Custom benchtop made from upcycled bowling alley lanes, corrugated steel backsplash, and bright task lighting creates an organized workspace for DIY enthusiasts.",
+},
+{
+image: trimWork,
+title: 'Trim Work',
+description: "Showcasing unique rustic vintage charm with custom trim work for window renovation projects. The client provided salvaged vintage head casings, which perfectly fit the new windows in their entry porch, highlighting the beauty of repurposed materials.",
+},
+{
+image: deck,
+title: 'Deck',
+description: "Reviving a client's outdoor living space with a low-maintenance TREX Composite Deck, TREX Railing system, and rebuilt staircase. This deck renovation is perfect for homeowners looking to enhance their backyard for relaxation and entertainment.",
+},
+{
+image: customBar,
+title: 'Custom Bar',
+description: 'A bespoke bar crafted from reclaimed barn wood for a rustic barn wedding. The custom bar, finished with a clear protective coat, adds a touch of elegance and sustainability for eco-conscious event planners and clients.',
+},
+];
 
-  return (
-    <div id="about-me">
-      <h2>About Me</h2>
-      <p>
-        I started by going to school for enginnering and then decided to go into the trades. I have been in the trades for 10 years, now I've gone off on my own and started my own business. I have a passion for building and creating things. I love to see the finished product and the satisfaction of a job well done.
-      </p>
-      <div className="projects">
-        {projects.map((project) => (
-          <div className="project" key={project.title}>
-            <img src={project.image} alt={project.title} />
-            <h3>{project.title}</h3>
-            <p>{project.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+return (
+<div id="about-me">
+<h2>About Me</h2>
+<p>
+I started by going to school for engineering and then decided to go into the trades. I have been in the trades for 10 years, now I've gone off on my own and started my own business. I have a passion for building and creating things. I love to see the finished product and the satisfaction of a job well done.
+</p>
+<div className="projects">
+{projects.map((project) => (
+<div className="project" key={project.title}>
+<img src={project.image} alt={project.title} />
+<h3>{project.title}</h3>
+<p>{project.description}</p>
+</div>
+))}
+</div>
+</div>
+);
 }
 
 export default About;
