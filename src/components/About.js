@@ -36,9 +36,9 @@ description: 'A bespoke bar crafted from reclaimed barn wood for a rustic barn w
 
 return (
 <div id="about-me">
-<h2>About Me</h2>
+<h2>About Us</h2>
 <p>
-I started by going to school for engineering and then decided to go into the trades. I have been in the trades for 10 years, now I've gone off on my own and started my own business. I have a passion for building and creating things. I love to see the finished product and the satisfaction of a job well done.
+We started by going to school for engineering and then decided to go into the trades. Now I've gone off on my own and started my own business. I have a passion for building and creating things. I love to see the finished product and the satisfaction of a job well done.
 </p>
 <div className="projects">
 {projects.map((project) => (
